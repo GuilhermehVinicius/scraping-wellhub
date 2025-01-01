@@ -13,7 +13,7 @@ def load_full_page(url):
 
     while True:
         try:
-            button_more = driver.find_element(By.XPATH, "/html/body/div[4]/div[4]/div/div/div/div/div/div/div/div/div/div/div[2]/button")
+            button_more = driver.find_element(By.CSS_SELECTOR, "button.sc-599fa389-9.cNdyAK.sc-599fa389-128.fBeEFR")
             button_more.send_keys(Keys.RETURN)
             time.sleep(5)
         except (NoSuchElementException, ElementNotInteractableException):
@@ -26,10 +26,10 @@ def load_full_page(url):
 
 def extract_main_data(page_content):
     soup = BeautifulSoup(page_content, 'html.parser')
-    card_selector = 'body > div.sc-81390cec-0.cgVNna > div:nth-child(4) > div > div > div > div > div > div > div > div > div > div > div > div > div'
-    name_selector = 'p.sc-599fa389-68.sc-599fa389-201.iSwRRm.jizqnC'
+    card_selector = 'body > div.sc-81390cec-0.cgVNna > div:nth-child(4) > div > div > div > div > div > div > div > div > div > div > div.sc-599fa389-8.fgYahR > div > div'
+    name_selector = f'{card_selector} > a > div.sc-599fa389-8.kJcdgt > div.sc-599fa389-8.gbttFF'
     plan_selector = f'{card_selector} > a > div.sc-599fa389-8.kJcdgt > div.sc-599fa389-90.bIbdOT > span'
-    link_selector = f'body > div.sc-81390cec-0.cgVNna > div:nth-child(4) > div > div > div > div > div > div > div > div > div > div > div.sc-599fa389-8.fgYahR > div > div > a'
+    link_selector = f'{card_selector} > a'
 
     names, plans, links = [], [], []
     cards = soup.select(card_selector)
