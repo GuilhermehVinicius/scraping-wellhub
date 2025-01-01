@@ -3,8 +3,6 @@ from database import engine, create_tables
 import pandas as pd
 import time
 
-print("hello word")
-
 def main():
 
     create_tables()
@@ -21,7 +19,7 @@ def main():
 
 if __name__ == "__main__": 
     while True:
-        print("Executando tarefa diária...2")
+        print("Executando tarefa diária...")
         main()
         print("Aguardando para proxima execução")
         time.sleep(86400)

@@ -72,13 +72,13 @@ Para rodar o projeto via Docker, siga os passos abaixo:
 1. Construa a imagem Docker:
 
    ```bash
-   sudo docker build -t scrapyng_wellhub_franca .
+   sudo docker build -t scraping_wellhub_franca .
    ```
 
 2. Execute o container:
 
    ```bash
-   sudo docker run -d scrapyng_wellhub_franca
+   sudo docker run -d scraping_wellhub_franca
    ```
 
 ---
