@@ -64,3 +64,24 @@ def extract_detailed_data(links):
         services.append(",".join([s.text for s in service_elements]))
         comorbidities.append(",".join([c.text for c in comorbidity_elements]))
     return pd.DataFrame({'address': addresses, 'services': services, 'comorbidities': comorbidities})
+
+def extract_plans_values(url_plans):
+    plans, plans_values = [], []
+    driver = configure_driver()
+    driver.get(url_plans)
+    soup = BeautifulSoup(driver.page_source, 'html.parser')
+    driver.quit()
+    plans_elements = soup.select('h3.sc-4c820cc2-71.cXCAJT, h2.sc-4c820cc2-71.cXCAJT')
+    plans_values_elements = soup.select('p.sc-4c820cc2-67.jrOKC')
+    
+    plans.append([v.text for v in plans_elements])
+    plans_values.append([v.text for v in plans_values_elements])
+
+
+    plans = [valor.replace(' ', '') for valor in plans[0]]
+    plans_values = [float(valor.replace(',', '.')) for valor in plans_values[0]]
+    print(plans)
+    print(plans_values)
+
+    return pd.DataFrame({'base_plan': plans, 'values': plans_values})
+    

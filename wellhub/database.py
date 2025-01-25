@@ -1,6 +1,6 @@
 
 
-from sqlalchemy import Column, Integer, String, DateTime, text
+from sqlalchemy import Column, Integer, String, DateTime, text, Float
 from sqlalchemy.orm import declarative_base
 from config import engine
 
@@ -15,6 +15,7 @@ class Gym(Base):
     services = Column(String(500), nullable=False)
     comorbidities = Column(String(500), nullable=False)
     date = Column(DateTime, server_default=text('CURRENT_TIMESTAMP'))
+    values =  Column(Float, nullable=False)
 
 Base.metadata.create_all(engine)
 
