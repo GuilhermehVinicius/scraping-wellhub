@@ -1,3 +1,5 @@
+
+
 from sqlalchemy import Column, Integer, String, DateTime, text
 from sqlalchemy.orm import declarative_base
 from config import engine
@@ -23,4 +25,9 @@ def create_tables():
 
 if __name__ == "__main__":
     create_tables()
+
+
+
+
+
 

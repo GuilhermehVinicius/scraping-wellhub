@@ -13,6 +13,8 @@ def main():
     df_details = extract_detailed_data(df_main['links'])
     result = pd.concat([df_main, df_details], axis=1)
     result = result[["name","base_plan","address","services","comorbidities"]]
+    print(result)
+    result.to_csv('gyms_franca_wellhub.csv',index=False)
     result.to_sql('gyms_franca_wellhub', engine, if_exists='append', index=False)
     print(result)
 
