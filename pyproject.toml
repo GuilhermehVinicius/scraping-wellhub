@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "welhub"
+name = "wellhub"
 version = "0.1.0"
 description = ""
 authors = ["GuilhermehVinicius <guilherme.ribeiro.business@gmail.com>"]
